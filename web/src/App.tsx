@@ -1,13 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Page } from './components';
-
-
+import { BooksPage } from './pages';
 
 const App = () => (
-  <Page title="Books">
-    Content
-  </Page>
+  <BooksPage />
 );
 
 export default App;
