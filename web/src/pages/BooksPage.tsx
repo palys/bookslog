@@ -27,7 +27,9 @@ const BooksPage: React.FC = () => (
         rows={books.map(({id, title, pages}) => ({
             id,
             entries: [title, pages]
-        }))} />
+        }))} 
+        onAdd={() => {}}
+        />
     </Page>
 );
 

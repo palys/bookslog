@@ -14,9 +14,10 @@ export interface RowEntry {
 interface Props {
     header: HeaderEntry[];
     rows: RowEntry[];
+    onAdd?: () => void;
 }
 
-const Table: React.FC<Props> = ({ header, rows }) => {
+const Table: React.FC<Props> = ({ header, rows, onAdd }) => {
     const totalWidth = header.map(entry => entry.width).reduce((a, b) => a + b, 0) + 1;
     return (
         <StyledTable>
@@ -38,16 +39,18 @@ const Table: React.FC<Props> = ({ header, rows }) => {
                     ))}
                 </tr>
             ))}
-            <tr>
-                <td>
-                    <button>+</button>
-                </td>
-                {header.map(entry => (
-                    <td key={entry.name} width={100 * entry.width / totalWidth}>
-                        <input />
+            {onAdd && (
+                <tr>
+                    <td>
+                        <button>+</button>
                     </td>
-                ))}
-            </tr>
+                    {header.map(entry => (
+                        <td key={entry.name} width={100 * entry.width / totalWidth}>
+                            <input />
+                        </td>
+                    ))}
+                </tr>
+            )}
         </StyledTable>
     );
 };
