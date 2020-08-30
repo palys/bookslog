@@ -17,7 +17,7 @@ const books: Book[] = [{
 const BooksPage: React.FC = () => (
     <Page>
         <Table header={[{
-            name: 'Name',
+            name: 'Title',
             width: 2
         },
         {
