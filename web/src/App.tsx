@@ -1,20 +1,8 @@
 import React from 'react';
-import { BooksPage } from './pages';
-import Book from './model/Book';
-
-const books: Book[] = [{
-  id: '1',
-  title: 'book1',
-  pages: 123
-},
-{
-  id: '2',
-  title: 'book2',
-  pages: 456
-}];
+import Router from './router/Router';
 
 const App = () => (
-  <BooksPage books={books} />
+  <Router />
 );
 
 export default App;

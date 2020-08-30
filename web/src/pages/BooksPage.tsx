@@ -3,11 +3,18 @@ import { Page } from '../components';
 import Book from '../model/Book';
 import Table from '../components/Table';
 
-interface Props {
-    books: Book[];
-}
+const books: Book[] = [{
+    id: '1',
+    title: 'book1',
+    pages: 123
+  },
+  {
+    id: '2',
+    title: 'book2',
+    pages: 456
+  }];
 
-const BooksPage: React.FC<Props> = ({ books }) => (
+const BooksPage: React.FC = () => (
     <Page title="Books">
         <Table header={[{
             name: 'Name',
