@@ -1,23 +1,24 @@
 import React from 'react';
+import { useHistory } from "react-router-dom";
 import styled from 'styled-components';
+
 import colors from '../theme/colors';
 
-interface Props {
-    title: string;
-}
-
-const Page: React.FC<Props> = ({ title, children }) => (
-    <>
-        <Header>
-            <Title>
-                {title}
-            </Title>
-        </Header>
-        <Content>
-            {children}
-        </Content>
-    </>
-);
+const Page: React.FC = ({ children }) => {
+    const history = useHistory();
+    return (
+        <>
+            <Header>
+                <Title onClick={() => history.push('/')}>
+                    BooksLog
+                </Title>
+            </Header>
+            <Content>
+                {children}
+            </Content>
+        </>
+    );
+};
 
 const Header = styled.div`
     top: 0;
@@ -25,6 +26,7 @@ const Header = styled.div`
     height: 60px;
     position: fixed;
     background-color: ${colors.LIGHT_BLUE};
+    box-shadow: 0px -10px 25px 3px rgba(0,0,0,0.6);
 `;
 
 const Title = styled.span`
@@ -33,6 +35,7 @@ const Title = styled.span`
     font-size: 40px;
     line-height: 60px;
     font-weight: 700;
+    cursor: pointer;
 `;
 
 const Content = styled.div`

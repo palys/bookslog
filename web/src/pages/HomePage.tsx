@@ -8,7 +8,7 @@ import colors from '../theme/colors';
 const HomePage: React.FC = () => {
     const history = useHistory();
     return (
-        <Page title="BooksLog">
+        <Page>
             <MenuEntry onClick={() => history.push('/books')}>
                 Books
             </MenuEntry>
