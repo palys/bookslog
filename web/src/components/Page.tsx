@@ -8,9 +8,9 @@ interface Props {
 const Page: React.FC<Props> = ({ title, children }) => (
     <>
         <Header>
-            <h1>
+            <Title>
                 {title}
-            </h1>
+            </Title>
         </Header>
         <Content>
             {children}
@@ -23,11 +23,20 @@ const Header = styled.div`
     width: 100%;
     height: 60px;
     position: fixed;
-    background-color: blue;
+    background-color: #00adb5;
+`;
+
+const Title = styled.span`
+    margin-left: 120px;
+    color: #222831;
+    font-size: 40px;
+    line-height: 60px;
+    font-weight: 700;
 `;
 
 const Content = styled.div`
     margin-top: 60px;
+    margin-left: 120px;
 `;
 
 export default Page;
