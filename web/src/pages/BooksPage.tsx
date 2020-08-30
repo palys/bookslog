@@ -18,11 +18,11 @@ const BooksPage: React.FC = () => (
     <Page>
         <Table header={[{
             name: 'Title',
-            width: 2
+            width: 14
         },
         {
             name: 'Pages',
-            width: 1
+            width: 4
         }]} 
         rows={books.map(({id, title, pages}) => ({
             id,

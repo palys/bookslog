@@ -22,7 +22,7 @@ const Table: React.FC<Props> = ({ header, rows, onAdd }) => {
     return (
         <StyledTable>
             <tr>
-                <Header width={1 / totalWidth} />
+                <Header width={100 / totalWidth} />
                 {header.map(entry => (
                     <Header key={entry.name} width={100 * entry.width / totalWidth}>
                         {entry.name}
@@ -45,8 +45,8 @@ const Table: React.FC<Props> = ({ header, rows, onAdd }) => {
                         <button>+</button>
                     </td>
                     {header.map(entry => (
-                        <td key={entry.name} width={100 * entry.width / totalWidth}>
-                            <input />
+                        <td key={entry.name}>
+                            <Input />
                         </td>
                     ))}
                 </tr>
@@ -62,6 +62,10 @@ const StyledTable = styled.table`
 const Header = styled.th`
     text-align: left;
     width: ${({width}: {width: number}) => width}%;
+`;
+
+const Input = styled.input`
+    width: 100%;
 `;
 
 export default Table;
