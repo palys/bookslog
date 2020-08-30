@@ -1,4 +1,5 @@
 import React from 'react';
+import styled from 'styled-components';
 
 export interface HeaderEntry {
     name: string;
@@ -15,25 +16,37 @@ interface Props {
     rows: RowEntry[];
 }
 
-const Table: React.FC<Props> = ({ header, rows }) => (
-    <table>
-        <tr>
-            {header.map(entry => (
-                <th key={entry.name}>
-                    {entry.name}
-                </th>
-            ))}
-        </tr>
-        {rows.map(row => (
-            <tr key={row.id}>
-                {row.entries.map((entry, i) => (
-                    <td key={header[i].name}>
-                        {entry}
-                    </td>
+const Table: React.FC<Props> = ({ header, rows }) => {
+    const totalWidth = header.map(entry => entry.width).reduce((a, b) => a + b, 0);
+    return (
+        <StyledTable>
+            <tr>
+                {header.map(entry => (
+                    <Header key={entry.name} width={100 * entry.width / totalWidth}>
+                        {entry.name}
+                    </Header>
                 ))}
             </tr>
-        ))}
-    </table>
-);
+            {rows.map(row => (
+                <tr key={row.id}>
+                    {row.entries.map((entry, i) => (
+                        <td key={header[i].name}>
+                            {entry}
+                        </td>
+                    ))}
+                </tr>
+            ))}
+        </StyledTable>
+    );
+};
+
+const StyledTable = styled.table`
+    width: 100%;
+`;
+
+const Header = styled.th`
+    text-align: left;
+    width: ${({width}: {width: number}) => width}%;
+`;
 
 export default Table;

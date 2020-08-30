@@ -11,7 +11,7 @@ const BooksPage: React.FC<Props> = ({ books }) => (
     <Page title="Books">
         <Table header={[{
             name: 'Name',
-            width: 1
+            width: 2
         },
         {
             name: 'Pages',
