@@ -38,6 +38,7 @@ const Title = styled.span`
 const Content = styled.div`
     margin-top: 60px;
     margin-left: 120px;
+    margin-right: 120px;
 `;
 
 export default Page;

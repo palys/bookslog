@@ -1,5 +1,4 @@
 import React from 'react';
-import styled from 'styled-components';
 import { BooksPage } from './pages';
 import Book from './model/Book';
 
