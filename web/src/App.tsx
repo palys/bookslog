@@ -1,14 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Page } from './components';
+
+
 
 const App = () => (
-  <Test>
-    App
-  </Test>
+  <Page title="Books">
+    Content
+  </Page>
 );
-
-const Test = styled.div`
-  color: red;
-`;
 
 export default App;
