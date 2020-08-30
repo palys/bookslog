@@ -39,6 +39,8 @@ const Content = styled.div`
     margin-top: 60px;
     margin-left: 120px;
     margin-right: 120px;
+    display: flex;
+    flex-direction: column;
 `;
 
 export default Page;
