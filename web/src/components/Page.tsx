@@ -14,6 +14,8 @@ const Page: React.FC = ({ children }) => {
                 </Title>
                 <NavBar>
                     <Link to="/books" activeStyle={{ borderBottomColor: colors.LIGHT_GRAY}}>Books</Link>
+                    <Link to="/log" activeStyle={{ borderBottomColor: colors.LIGHT_GRAY}}>Log</Link>
+                    <Link to="/analyze" activeStyle={{ borderBottomColor: colors.LIGHT_GRAY}}>Analyze</Link>
                 </NavBar>
             </Header>
             <Content>
@@ -56,6 +58,8 @@ const Link = styled(NavLink)`
     border-bottom: 5px solid transparent;
     height: 60px;
     padding: 15px 5px 0;
+    width: 100px;
+    text-align: center;
 
     &:hover {
         background-color: #00000022;

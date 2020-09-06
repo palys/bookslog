@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import { BooksPage, HomePage } from '../pages';
+import { BooksPage, HomePage, EmptyPage } from '../pages';
 
 const Router: React.FC = () => (
     <BrowserRouter>
@@ -8,7 +8,13 @@ const Router: React.FC = () => (
             <Route path="/books">
                 <BooksPage />
             </Route>
-            <Route path="/">
+            <Route path="/log">
+                <EmptyPage />
+            </Route>
+            <Route path="/analyze">
+                <EmptyPage />
+            </Route>
+            <Route path="/" exact>
                 <HomePage />
             </Route>
         </Switch>

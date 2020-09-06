@@ -12,10 +12,10 @@ const HomePage: React.FC = () => {
             <MenuEntry onClick={() => history.push('/books')}>
                 Books
             </MenuEntry>
-            <MenuEntry>
+            <MenuEntry onClick={() => history.push('/log')}>
                 Log
             </MenuEntry>
-            <MenuEntry>
+            <MenuEntry onClick={() => history.push('/analyze')}>
                 Analyze
             </MenuEntry>
         </Page>
