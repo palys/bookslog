@@ -1,5 +1,5 @@
-import React from 'react';
-import { Page, Button } from '../components';
+import React, { useState } from 'react';
+import { Page, Button, Modal } from '../components';
 import Book from '../model/Book';
 import styled from 'styled-components';
 import colors from '../theme/colors';
@@ -27,32 +27,38 @@ const books: Book[] = [{
     }]
   }];
 
-const BooksPage: React.FC = () => (
-    <Page>
-        <TitleRow>
-            <Title>
-                Books
+const BooksPage: React.FC = () => {
+    const [isModalOpen, setModalOpen] = useState(false);
+    return (
+        <Page>
+            <TitleRow>
+                <Title>
+                    Books
             </Title>
-            <Button>+ Add new</Button>
-        </TitleRow>
-        <table>
-            <tr>
-                <Header width={1} />
-                <Header width={10}>Title</Header>
-                <Header width={8}>Authors</Header>
-                <Header width={4}>Number of pages</Header>
-            </tr>
-            {books.map((book, i) => (
-                <tr key={book.id}>
-                    <td>{i + 1}.</td>
-                    <td>{book.title}</td>
-                    <td>{book.authors.map(({name}) => name).join(', ')}</td>
-                    <td>{book.numberOfPages}</td>
+                <Button onClick={() => setModalOpen(true)}>+ Add new</Button>
+            </TitleRow>
+            <table>
+                <tr>
+                    <Header width={1} />
+                    <Header width={10}>Title</Header>
+                    <Header width={8}>Authors</Header>
+                    <Header width={4}>Number of pages</Header>
                 </tr>
-            ))}
-        </table>
-    </Page>
-);
+                {books.map((book, i) => (
+                    <tr key={book.id}>
+                        <td>{i + 1}.</td>
+                        <td>{book.title}</td>
+                        <td>{book.authors.map(({ name }) => name).join(', ')}</td>
+                        <td>{book.numberOfPages}</td>
+                    </tr>
+                ))}
+            </table>
+            <Modal isOpen={isModalOpen} onClose={() => setModalOpen(false)}>
+                Add new book form
+            </Modal>
+        </Page>
+    );
+};
 
 const TitleRow = styled.div`
     margin: 10px 0;
