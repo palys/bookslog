@@ -1,7 +1,7 @@
 import React from 'react';
 import { Page } from '../components';
 import Book from '../model/Book';
-import Table from '../components/Table';
+import styled from 'styled-components';
 
 const books: Book[] = [{
     id: '1',
@@ -28,21 +28,45 @@ const books: Book[] = [{
 
 const BooksPage: React.FC = () => (
     <Page>
-        <Table header={[{
-            name: 'Title',
-            width: 14
-        },
-        {
-            name: 'Pages',
-            width: 4
-        }]} 
-        rows={books.map(({id, title, numberOfPages}) => ({
-            id,
-            entries: [title, numberOfPages]
-        }))} 
-        onAdd={() => {}}
-        />
+        <StyledTable>
+            <tr>
+                <Header width={1} />
+                <Header width={10}>Title</Header>
+                <Header width={4}>Number of pages</Header>
+            </tr>
+            {books.map((book, i) => (
+                <tr key={book.id}>
+                    <td>{i + 1}.</td>
+                    <td>{book.title}</td>
+                    <td>{book.numberOfPages}</td>
+                </tr>
+            ))}
+            <tr>
+                <td>
+                    <button>+</button>
+                </td>
+                <td>
+                    <Input />
+                </td>
+                <td>
+                    <Input />
+                </td>
+            </tr>
+        </StyledTable>
     </Page>
 );
+
+const StyledTable = styled.table`
+    width: 100%;
+`;
+
+const Header = styled.th`
+    text-align: left;
+    width: ${({width}: {width: number}) => width}%;
+`;
+
+const Input = styled.input`
+    width: 100%;
+`;
 
 export default BooksPage;
