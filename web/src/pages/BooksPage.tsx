@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Page, Button, Modal } from '../components';
+import { Page, Button, Modal, AddBookForm } from '../components';
 import Book from '../model/Book';
 import styled from 'styled-components';
 import colors from '../theme/colors';
@@ -54,7 +54,7 @@ const BooksPage: React.FC = () => {
                 ))}
             </table>
             <Modal isOpen={isModalOpen} onClose={() => setModalOpen(false)}>
-                Add new book form
+                <AddBookForm />
             </Modal>
         </Page>
     );
