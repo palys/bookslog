@@ -1,5 +1,8 @@
+import Author from "./Author";
+
 export default interface Book {
     id: string;
     title: string;
-    pages: number;
+    numberOfPages: number;
+    authors: Author[];
 }

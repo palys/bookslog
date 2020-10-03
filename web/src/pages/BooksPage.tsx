@@ -6,12 +6,24 @@ import Table from '../components/Table';
 const books: Book[] = [{
     id: '1',
     title: 'book1',
-    pages: 123
+    numberOfPages: 123,
+    authors: [{
+        id: '11',
+        name: 'author1'
+    }]
   },
   {
     id: '2',
     title: 'book2',
-    pages: 456
+    numberOfPages: 456,
+    authors: [{
+        id: '11',
+        name: 'author1'
+    },
+    {
+        id: '12',
+        name: 'author2'
+    }]
   }];
 
 const BooksPage: React.FC = () => (
@@ -24,9 +36,9 @@ const BooksPage: React.FC = () => (
             name: 'Pages',
             width: 4
         }]} 
-        rows={books.map(({id, title, pages}) => ({
+        rows={books.map(({id, title, numberOfPages}) => ({
             id,
-            entries: [title, pages]
+            entries: [title, numberOfPages]
         }))} 
         onAdd={() => {}}
         />
