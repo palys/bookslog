@@ -9,7 +9,8 @@ interface Props {
 }
 
 const Modal: React.FC<Props> = ({ isOpen, onClose, closeOnClickOutside = true, children}) => (
-    <Container isOpen={isOpen} onClick={onClose}>
+    <Container isOpen={isOpen}>
+        <CloseHandler onClick={onClose} />
         <ContentContainer>
             {children}
         </ContentContainer>
@@ -28,10 +29,17 @@ const Container = styled.div`
     justify-content: center;
 `;
 
+const CloseHandler = styled.div`
+    position: absolute;
+    width: 100%;
+    height: 100%;
+`;
+
 const ContentContainer = styled.div`
     padding: 20px;
     background-color: ${colors.LIGHT_BLUE};
     border-radius: 5px;
+    z-index: 10;
 `;
 
 export default Modal;
