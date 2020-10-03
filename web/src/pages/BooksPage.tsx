@@ -28,45 +28,28 @@ const books: Book[] = [{
 
 const BooksPage: React.FC = () => (
     <Page>
-        <StyledTable>
+        <table>
             <tr>
                 <Header width={1} />
                 <Header width={10}>Title</Header>
+                <Header width={8}>Authors</Header>
                 <Header width={4}>Number of pages</Header>
             </tr>
             {books.map((book, i) => (
                 <tr key={book.id}>
                     <td>{i + 1}.</td>
                     <td>{book.title}</td>
+                    <td>{book.authors.map(({name}) => name).join(', ')}</td>
                     <td>{book.numberOfPages}</td>
                 </tr>
             ))}
-            <tr>
-                <td>
-                    <button>+</button>
-                </td>
-                <td>
-                    <Input />
-                </td>
-                <td>
-                    <Input />
-                </td>
-            </tr>
-        </StyledTable>
+        </table>
     </Page>
 );
-
-const StyledTable = styled.table`
-    width: 100%;
-`;
 
 const Header = styled.th`
     text-align: left;
     width: ${({width}: {width: number}) => width}%;
-`;
-
-const Input = styled.input`
-    width: 100%;
 `;
 
 export default BooksPage;
