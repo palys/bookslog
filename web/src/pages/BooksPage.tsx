@@ -1,7 +1,8 @@
 import React from 'react';
-import { Page } from '../components';
+import { Page, Button } from '../components';
 import Book from '../model/Book';
 import styled from 'styled-components';
+import colors from '../theme/colors';
 
 const books: Book[] = [{
     id: '1',
@@ -28,6 +29,12 @@ const books: Book[] = [{
 
 const BooksPage: React.FC = () => (
     <Page>
+        <TitleRow>
+            <Title>
+                Books
+            </Title>
+            <Button>+ Add new</Button>
+        </TitleRow>
         <table>
             <tr>
                 <Header width={1} />
@@ -46,6 +53,19 @@ const BooksPage: React.FC = () => (
         </table>
     </Page>
 );
+
+const TitleRow = styled.div`
+    margin: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+`;
+
+const Title = styled.span`
+    color: ${colors.DARK_GRAY};
+    font-size: 40px;
+    font-weight: 700;
+`;
 
 const Header = styled.th`
     text-align: left;
