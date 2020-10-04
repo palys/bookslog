@@ -13,7 +13,7 @@ const Input: React.FC<Props> = ({ label, value, onChange, type = 'text' }) => {
     return (
         <Container>
             {label && <label htmlFor={id}>{label}</label>}
-            <input type={type} value={value} onChange={e => onChange?.(e.target.value)}/>
+            <input id={id} type={type} value={value} onChange={e => onChange?.(e.target.value)}/>
         </Container>
     );
 };

@@ -1,11 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Input from './Input';
 import Select from './Select';
 
 const AddBookForm: React.FC = () => {
+    const [title, setTitle] = useState<string>();
+    const [numberOfPages, setNumberOfPages] = useState<number>();
     return (
         <div>
-            <Input label="Title" />
+            <Input 
+                label="Title" 
+                value={title} 
+                onChange={setTitle}
+            />
             <Select 
                 label="Authors"
                 options={[{
@@ -19,7 +25,18 @@ const AddBookForm: React.FC = () => {
                     id: '2',
                     value: 'author2'
                 }} />
-            <Input label="Number of pages" />
+            <Input 
+                label="Number of pages" 
+                type="number" 
+                value={`${numberOfPages}`}
+                onChange={pages => {
+                    try {
+                        setNumberOfPages(parseInt(pages));
+                    } catch (e) {
+                        console.log(e);
+                    }
+                }} 
+            />
         </div>
     );
 }
