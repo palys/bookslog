@@ -70,6 +70,12 @@ const AddBookForm: React.FC = () => {
                     }}
                 />
             </Container>
+            <Container>
+                <Footer>
+                    <button>Save</button>
+                    <button>Cancel</button>
+                </Footer>
+            </Container>
         </div>
     );
 }
@@ -83,6 +89,12 @@ const Container = styled.div`
 
 const AuthorContainer = styled.div`
     margin-bottom: 10px;    
+`;
+
+const Footer = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 `;
 
 export default AddBookForm;
