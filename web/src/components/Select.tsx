@@ -3,10 +3,7 @@ import styled from 'styled-components';
 
 interface Props {
     label?: string;
-    value?: {
-        id: string;
-        value: string;
-    };
+    valueId?: string;
     options: Array<{
         id: string;
         value: string;
@@ -14,12 +11,13 @@ interface Props {
     onChange?: (value: string) => any;
 }
 
-const Select: React.FC<Props> = ({ label, value, options, onChange }) => {
+const Select: React.FC<Props> = ({ label, valueId = -1, options, onChange }) => {
     const [id] = useState(Math.random().toString(36));
     return (
         <Container>
             {label && <label htmlFor={id}>{label}</label>}
-            <select id={id} value={value?.id} onChange={e => onChange?.(e.target.value)}>
+            <select id={id} value={valueId} onChange={e => onChange?.(e.target.value)}>
+                <option disabled value={-1}>select...</option>
                 {options.map(option => (
                     <option value={option.id} key={option.id}>{option.value}</option>
                 ))}
